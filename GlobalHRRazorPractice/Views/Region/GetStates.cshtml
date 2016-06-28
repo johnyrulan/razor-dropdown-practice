@@ -1,0 +1,19 @@
+﻿@model GlobalHRRazorPractice.Models.GetStatesViewModel
+@{
+    ViewBag.Title = "Get States";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get States</h2>
+
+
+@using (Html.BeginForm("GetStates", "Region", FormMethod.Post))
+{
+  @Html.DropDownList("stateId", new SelectList(Model.States, "Id", "Name"), new {})
+  <input type="Submit"/>
+}
+
+@if (Model.Cities != null)
+{
+   @Html.DropDownList("cityId", new SelectList(Model.Cities, "Id", "Name"), new {})
+}
